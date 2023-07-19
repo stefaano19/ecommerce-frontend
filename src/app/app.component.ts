@@ -86,6 +86,11 @@ export class AppComponent implements OnInit{
     });
   }
 
+  rimuoviTutto(){
+    this.prodottoService.rimuoviProdottiCarrello();
+    this.prodottoService.cartAddedSubject.next(true);
+  }
+
   redirectToSale(){
     this.router.navigateByUrl("vendita");
   }

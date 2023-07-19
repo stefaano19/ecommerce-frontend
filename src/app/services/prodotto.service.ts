@@ -41,4 +41,10 @@ export class ProdottoService {
     return this.http.post('http://localhost:8080/prodotti/aggiungi', prodotto, this.httpOptions);
   }
 
+  rimuoviProdottiCarrello(){
+    console.log("ciao");
+    console.log(this.http.get('http://localhost:8080/prodotti/rimuoviProdottiCarrello', this.httpOptions))
+    this.http.get('http://localhost:8080/prodotti/rimuoviProdottiCarrello', this.httpOptions).subscribe();
+  }
+
 }

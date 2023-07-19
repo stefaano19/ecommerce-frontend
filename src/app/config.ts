@@ -6,6 +6,8 @@ import { AuthConfig } from 'angular-oauth2-oidc';
 
     // URL of the SPA to redirect the user to after login
     redirectUri: 'http://localhost:4200/registrazione',
+    logoutUrl: 'http://localhost:4200',
+    postLogoutRedirectUri: 'http://localhost:4200',
 
     // The SPA's id. The SPA is registerd with this id at the auth-server
     // clientId: 'server.code',

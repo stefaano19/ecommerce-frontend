@@ -24,13 +24,17 @@
                                             class="text-danger fw-semibold me-2">€ {{prodotto.prezzo}}</span>
                                      
                                     <div class="row">
-                                        <div class="col-6">
+                                        <div class="col-4">
                                             <i class="fa fa-star"
                                                 style="color: #f1f50f;"></i> 
                                                 <span class="text-muted">(8)</span>
                                         </div>
+                                        <div class="col-6">
+                                            <p class="card-text"><span
+                                                class="text-danger fw-semibold me-2">Quantità: {{prodotto.quantita}}</span>
+                                        </div>
                                         <div class="col-6 text-end">
-                                            <button class="btn btn-sm btn-success" (click)="aggiungiAlCarrello(prodotto.id)"> Aggiungi al Carrello</button>
+                                            <button class="btn btn-sm btn-success" (click)="aggiungiAlCarrello(prodotto.id, prodotto.quantita!)"> Aggiungi al Carrello</button>
                                         </div>
                                 
                                     </div>

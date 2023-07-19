@@ -41,21 +41,27 @@ export class HomeComponent implements OnInit{
     })
   }
 
-  aggiungiAlCarrello(id:number){
-    this.prodotto.id=id;
-    if(sessionStorage.getItem("access_token")==null){
-      alert('Fai login');
+  aggiungiAlCarrello(id:number, quantita:number){
+    if(quantita <= 0){
+      alert("Quantità non disponibile")
     }
-    this.prodottoService.aggiungiAlCarrello(this.prodotto, this.token).subscribe((result:any)=>{
-      if(result){
-        alert("Prodotto Aggiunto Al Carrello");
-        this.prodottoService.cartAddedSubject.next(true);
-        window.location.reload;
-        this.prodottoService.cartAddedSubject.next(true);
-      }else{
-        alert("Errore")
+    else{
+        this.prodotto.id=id;
+      if(sessionStorage.getItem("access_token")==null){
+        alert('Fai login');
       }
-    })
+      this.prodottoService.aggiungiAlCarrello(this.prodotto, this.token).subscribe((result:any)=>{
+        if(result){
+          alert("Prodotto Aggiunto Al Carrello");
+          this.prodottoService.cartAddedSubject.next(true);
+          window.location.reload;
+          this.prodottoService.cartAddedSubject.next(true);
+        }else{
+          alert("Errore")
+        }
+      })
+    }
+    
   }
 
   amministratore(){
