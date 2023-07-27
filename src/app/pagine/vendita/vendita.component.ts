@@ -15,8 +15,8 @@ export class VenditaComponent implements OnInit {
   prodottiCarrello: ProdottoCarrello[] = [];
   subTotal:number=0;
   prodottiOrdinati!: ProdottoOrdinato[];
-  prodottoOrdinato: ProdottoOrdinato= new ProdottoOrdinato();
   ordine: Ordine = new Ordine();
+  prodottoOrdinato!: ProdottoOrdinato;
 
   constructor(private prodottoService:ProdottoService, private ordineService:OrdineService){
 
@@ -39,6 +39,7 @@ export class VenditaComponent implements OnInit {
   makeSale(prodottiCarrello: ProdottoCarrello[]){
     this.prodottiOrdinati= [];
     prodottiCarrello.forEach(element => {
+      this.prodottoOrdinato= new ProdottoOrdinato();
       this.prodottoOrdinato.prezzo=element.prezzo;
       this.prodottoOrdinato.quantita=element.quantita;
       this.prodottoOrdinato.prodotto=element.prodottoId;
